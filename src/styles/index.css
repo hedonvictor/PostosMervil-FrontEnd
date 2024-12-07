@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.bg-layout {
+    background-image: url(../images/backgrounds/ccc.jpg);
+    background-size: cover;
+    background-position: center;
+    min-width: 100%;   
+}

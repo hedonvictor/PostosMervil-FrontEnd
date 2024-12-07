@@ -1,0 +1,1 @@
+export { ListagemPostos } from './ListagemPostos';
