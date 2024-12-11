@@ -1,16 +1,15 @@
 import React from 'react';
 
-import SearchBar from './components/SearchBar';
+// import SearchBar from './components/SearchBar';
 import { BaseLayout } from '../../shared/layouts/BaseLayout';
+import FerramentasDeListagem from '../../shared/components/barraDeFerramentas/FerramentasDeListagem';
 
 export const ListagemPostos = () => {
-    const handleSearch = (query: string) => {
-        console.log(`Procurando por: ${query}`);
-        // Implemente a lógica de busca aqui
-      };
+
+
     return (
         <BaseLayout>
-            <SearchBar placeholder="Digite sua busca..." onSearch={handleSearch}/>
+            <FerramentasDeListagem/>
         </BaseLayout>
     );
 };
