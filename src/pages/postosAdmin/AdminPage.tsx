@@ -1,10 +1,12 @@
 import React from 'react';
+import { BaseLayout } from '../../shared/layouts/BaseLayout';
+import { FerramentasDeDetalhe } from '../../shared';
 
 export const AdminPage = () => {
     return (
-        <div>
-            Admin Page
-        </div>
+        <BaseLayout>
+            <FerramentasDeDetalhe/>
+        </BaseLayout>
     );
 }
 
