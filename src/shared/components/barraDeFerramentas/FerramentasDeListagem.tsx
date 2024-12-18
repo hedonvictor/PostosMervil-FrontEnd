@@ -20,7 +20,7 @@ export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
     textoBotaoNovo = 'Novo',
 }) => {
     return (
-        <Form className="d-flex bg-secondary w-100 p-2 rounded">
+        <Form className="d-flex bg-secondary w-100 p-2 rounded mb-2">
             <Form.Control
                 type="search"
                 placeholder="Pesquisar..."

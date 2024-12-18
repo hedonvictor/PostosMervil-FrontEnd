@@ -1,7 +1,7 @@
 import { Environment } from "../../Environments";
 import { Api } from "../api";
 
-interface IListagemPostos {
+export interface IListagemPostos {
     id: number;
     nome: string;
     rede: string;
@@ -11,7 +11,7 @@ interface IListagemPostos {
     status: boolean; 
 };
 
-interface IDetalhePostos {
+export interface IDetalhePostos {
     id: number;
     nome: string;
     rede: string;
