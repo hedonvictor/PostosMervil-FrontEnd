@@ -11,10 +11,13 @@ import { Environment } from '../../Environments';
 
 interface ITabelaListagemProps {
     mostrarBotoes?: boolean;
+
+    mostrarBotaoNovo?: boolean;
+    aoCLicarEmNovo?: () => void;
 }
 
 
-export const TabelaListagem: React.FC<ITabelaListagemProps> = ({ mostrarBotoes = false }) => {
+export const TabelaListagem: React.FC<ITabelaListagemProps> = ({ mostrarBotoes = false, mostrarBotaoNovo = false }) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const { debounce } = useDebounce(1500, true);
 
@@ -81,6 +84,8 @@ export const TabelaListagem: React.FC<ITabelaListagemProps> = ({ mostrarBotoes =
             <FerramentasDeListagem
             textoDaBusca={busca}
             aoMudarTextoDeBusca={texto => setSearchParams({busca: texto, pagina: '1'}, {replace: true})}
+            mostrarBotaoNovo = {mostrarBotaoNovo}
+            aoCLicarEmNovo={() => navigate('/postos/detalhe/novo')}
             />
             <Table striped bordered hover size="sm">
                 <thead>

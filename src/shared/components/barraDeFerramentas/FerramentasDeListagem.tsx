@@ -5,7 +5,7 @@ interface IFerramentasDeListagemProps {
     aoMudarTextoDeBusca?: (novoTexto: string) => void;
     
     textoBotaoNovo?: string;  
-    mostrarInputButton?: boolean;
+    mostrarBotaoNovo?: boolean;
     aoCLicarEmNovo?: () => void;
 }
 
@@ -16,7 +16,7 @@ export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
     aoMudarTextoDeBusca,
     
     aoCLicarEmNovo,
-    mostrarInputButton = false,  
+    mostrarBotaoNovo = false,  
     textoBotaoNovo = 'Novo',
 }) => {
     return (
@@ -28,7 +28,7 @@ export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
                 value={textoDaBusca}
                 onChange={(e) => aoMudarTextoDeBusca?.(e.target.value)}
             />
-            { mostrarInputButton && (
+            { mostrarBotaoNovo && (
                 <Button 
                     variant="light" 
                     className="d-flex align-items-center"
