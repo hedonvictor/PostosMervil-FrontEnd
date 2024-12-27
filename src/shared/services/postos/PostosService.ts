@@ -62,9 +62,9 @@ const getById = async (id: number): Promise<IDetalhePostos | Error> => {
 
 const create = async (dataReceived: Omit<IDetalhePostos, 'id'>): Promise<number | Error> => {
     try {
-        const {data} = await Api.post<IDetalhePostos>('/postos', dataReceived);
+        const {data} = await Api.post<number>('/postos', dataReceived);
 
-        if (data) return data.id;
+        if (data) return data;
 
         return new Error('Erro ao criar o registro');
     } catch (error) {

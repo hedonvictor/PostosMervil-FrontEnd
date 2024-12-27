@@ -6,7 +6,7 @@ import { TabelaListagem } from '../../shared';
 export const ListagemPostos = () => {
     return (
         <BaseLayout>
-            <TabelaListagem/>
+            <TabelaListagem mostrarBotaoSair/>
         </BaseLayout>
     );
 };

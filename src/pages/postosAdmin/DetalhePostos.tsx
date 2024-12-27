@@ -38,9 +38,11 @@ export const DetalhePostos = () => {
                     if(result instanceof Error){
                         alert(result.message);
                     } else {
-                        navigate(`/postos/detalhe/${result}`);
+                        navigate(`/adminPage/detalhe/${result}`);
                     }
-                });
+                })
+                ;
+                
         }; 
 
         if(id !== 'novo'){
@@ -48,6 +50,8 @@ export const DetalhePostos = () => {
                 .then((result) => {
                     if(result instanceof Error){
                         alert(result.message);
+                    } else {
+                        navigate('/adminPage')
                     }
                 });
         };
@@ -69,16 +73,13 @@ export const DetalhePostos = () => {
         <BaseLayout>
         <FerramentasDeDetalhe
             mostrarBotaoApagar={id !== 'novo'}
-            mostrarBotaoNovo={id !== 'novo'}
+            mostrarBotaoNovo={!id}
 
-            aoCLicarEmSalvar={() => formRef.current?.submit()}
-            aoCLicarEmSalvarEVoltar={() => formRef.current?.submit()}
             aoCLicarEmApagar={() => handleDelete(Number(id))}
-            aoCLicarEmNovo={() => navigate('/postos/detalhe/novo')}
+            aoCLicarEmNovo={() => navigate('/adminPage/detalhe/novo')}
             aoCLicarEmVoltar={() => navigate('/adminPage')}
         />
-            <p className="text-white">{id}</p>
-            <FormNewPosto onSubmit={handleSave} ref={formRef} initialData={posto}/>
+            <FormNewPosto onSubmit={handleSave} ref={formRef} initialData={posto} formButtonText={id === 'novo' ? 'Cadastrar Posto' : 'Atualizar Posto'}/>
         </BaseLayout>
     )
 }

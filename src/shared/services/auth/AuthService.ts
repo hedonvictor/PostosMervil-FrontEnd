@@ -2,12 +2,12 @@ import { Api } from "../api";
 
 
 interface IAuth {
-    accessToken: string;
+    token: string;
 }
 
 const auth = async (username: string, password: string): Promise<IAuth | Error> => {
     try {
-        const {data} = await Api.post('/entrar', {email: username, senha: password});
+        const {data} = await Api.post('/entrar', {username, password});
 
         if(data) {
             return data;

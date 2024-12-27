@@ -14,6 +14,7 @@ interface IPostoFormProps {
         status: boolean;
     };
     onSubmit: (postoData: IPostoFormValues) => void;
+    formButtonText: string;
 };
 
 export interface IPostoFormValues {
@@ -25,7 +26,7 @@ export interface IPostoFormValues {
     status: boolean; 
 };
 
-export const FormNewPosto = forwardRef<HTMLFormElement, IPostoFormProps>(({ initialData, onSubmit }, ref) => {
+export const FormNewPosto = forwardRef<HTMLFormElement, IPostoFormProps>(({ initialData, onSubmit, formButtonText }, ref) => {
     const [formData, setFormData] = useState<IPostoFormValues>({
         nome: '',
         rede: '',
@@ -142,7 +143,7 @@ export const FormNewPosto = forwardRef<HTMLFormElement, IPostoFormProps>(({ init
                 </Col>
             </Row>
             <Button variant="secondary" type="submit" className="w-100"> 
-                Cadastrar Posto
+                {formButtonText}
             </Button>
         </Form>
     )
