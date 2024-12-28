@@ -21,20 +21,23 @@ interface ITabelaListagemProps {
 
 export const TabelaListagem: React.FC<ITabelaListagemProps> = ({ mostrarBotoes = false, mostrarBotaoNovo = false, mostrarBotaoSair = false }) => {
     const [searchParams, setSearchParams] = useSearchParams();
+
     const { debounce } = useDebounce(1500, true);
 
     const navigate = useNavigate();
 
     const [rows, setRows] = useState<IListagemPostos[]>([])
     const [totalCount, setTotalCount] = useState(0)
+
     const [isLoading, setIsLoading] = useState(true);
+
 
     const busca = useMemo(() => {
         return searchParams.get('busca') || '';
     },[searchParams]);
 
     const pagina = useMemo(() => {
-        return Number(searchParams.get('pagina') || '1')
+        return Number(searchParams.get('pagina') || '1') 
     }, [searchParams])
 
     useEffect(() => {
@@ -79,8 +82,6 @@ export const TabelaListagem: React.FC<ITabelaListagemProps> = ({ mostrarBotoes =
     }
 
 
-
-
     return (
         <Container >
             <FerramentasDeListagem
@@ -90,7 +91,7 @@ export const TabelaListagem: React.FC<ITabelaListagemProps> = ({ mostrarBotoes =
             aoCLicarEmNovo={() => navigate('/adminPage/detalhe/novo')}
             mostrarBotaoSair = {mostrarBotaoSair}
             />
-            <Table striped bordered hover size="sm">
+            <Table striped bordered hover responsive >
                 <thead>
                     <tr>
                     { mostrarBotoes && (
@@ -105,7 +106,8 @@ export const TabelaListagem: React.FC<ITabelaListagemProps> = ({ mostrarBotoes =
                     </tr>
                 </thead>
                 <tbody>
-                    {rows.map(row =>(
+                    {rows
+                        .map(row =>(
                         <tr key={row.id} className={row.status ? '' : 'table-danger'}>
                             { mostrarBotoes && (
                                 <td>

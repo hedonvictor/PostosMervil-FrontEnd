@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 interface IFerramentasDeListagemProps {
     textoDaBusca?: string;
     aoMudarTextoDeBusca?: (novoTexto: string) => void;
+
     
     textoBotaoNovo?: string;  
     mostrarBotaoNovo?: boolean;
@@ -17,7 +18,7 @@ interface IFerramentasDeListagemProps {
 export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
     textoDaBusca = '',
     aoMudarTextoDeBusca,
-    
+
     aoCLicarEmNovo,
     mostrarBotaoNovo = false,  
     textoBotaoNovo = 'Novo',
@@ -32,7 +33,7 @@ export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
         <Form className="d-flex bg-secondary w-100 p-2 rounded mb-2">
             <Form.Control
                 type="search"
-                placeholder="Pesquisar..."
+                placeholder="Pesquise por UF ou nome..."
                 className="me-2"
                 value={textoDaBusca}
                 onChange={(e) => aoMudarTextoDeBusca?.(e.target.value)}

@@ -12,7 +12,7 @@ type IPrivateProps = {
 const Private: React.FC<IPrivateProps> = ({Item}) => {
     const {isAuthenticated} = useAuthContext();
 
-   // console.log("Estado de autenticação no Private:", isAuthenticated);
+    console.log("Estado de autenticação no Private:", isAuthenticated);
 
     return isAuthenticated ? <Item/> : <LoginPage/>
 }
