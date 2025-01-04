@@ -8,28 +8,27 @@ import { useAuthContext } from "../../../shared/contexts";
 export const LoginForm = () => {
   const navigate = useNavigate();
 
-  const {login} = useAuthContext()
+  const { login } = useAuthContext()
 
   const [isLoading, setIsLoading] = useState(false);
-
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-
-  const handleSubmit = async () => {
+  const handleLogin = async () => {
 
     setIsLoading(true);
 
-    try {
-      await login(username, password)
-      setIsLoading(false);
+    const result = await login(username, password);
 
-      navigate('/adminPage');
-    } catch (error) {
+    if(result) {
+      alert(result);
       setIsLoading(false);
-      window.alert(error)
-    }
+    } else {
+      navigate('/adminPage')
+      window.location.reload();
+      setIsLoading(false);
+    };
   };
 
   return (
@@ -59,7 +58,7 @@ export const LoginForm = () => {
               />
             </Form.Group>
 
-            <Button variant="secondary" type="button" onClick={handleSubmit} className="w-100 mb-3">
+            <Button variant="secondary" type="button" onClick={handleLogin} className="w-100 mb-3">
               Entrar
             </Button>
             <Button variant="dark"  className="w-100" disabled={isLoading} onClick={() => navigate('/')}>

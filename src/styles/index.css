@@ -11,12 +11,3 @@ body {
     padding: 0;
 }
 
-.bg-layout {
-    background-image: 
-        linear-gradient(to bottom, #212529 3%, rgba(27, 30, 35, 0)),
-        linear-gradient(to top, #212529 6%, rgba(27, 30, 35, 0) 40%),
-        url(../images/backgrounds/ccc.jpg);
-    background-size: cover;
-    background-position: center;
-    min-width: 100%;   
-}

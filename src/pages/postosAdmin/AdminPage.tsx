@@ -10,8 +10,10 @@ export const AdminPage = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {   
+
         logout();
         navigate('/');
+        window.location.reload();
     }
 
     return (
@@ -23,7 +25,6 @@ export const AdminPage = () => {
             <Button variant='danger' onClick={handleLogout}>
                 Sair
             </Button>
-
         </BaseLayout>
     );
 }

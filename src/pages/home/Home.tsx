@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { BaseLayout } from '../../shared/layouts/BaseLayout';
 import  { ButtonsInit } from './components/ButtonsInit';
 import { ContainerCard } from '../components/ContainerCard';
