@@ -1,11 +1,21 @@
-import React from 'react';
-
+import { useAuthContext } from '../../shared/contexts';
 import { BaseLayout } from '../../shared/layouts/BaseLayout';
 import { ContainerCard } from '../components/ContainerCard';
 import { LoginForm } from './components/LoginForm';
 
 
-export const LoginPage = () => {
+interface ILoginPageProps {
+    children: React.ReactNode;
+}
+
+export const LoginPage: React.FC<ILoginPageProps> = ({children}) => {
+
+    const { isAuthenticated } = useAuthContext();
+
+    if (isAuthenticated) return (
+        <>{children}</>
+    )
+
     return (
         <BaseLayout>
             <ContainerCard 

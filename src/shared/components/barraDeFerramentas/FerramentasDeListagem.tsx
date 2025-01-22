@@ -41,7 +41,7 @@ export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
             { mostrarBotaoNovo && (
                 <Button 
                     variant="light" 
-                    className="d-flex align-items-center"
+                    className="d-flex align-items-center me-2"
                     onClick={aoCLicarEmNovo}
                 >
                     {textoBotaoNovo}

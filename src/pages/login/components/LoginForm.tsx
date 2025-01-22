@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 
 import { useAuthContext } from "../../../shared/contexts";
 
 
 export const LoginForm = () => {
-  const navigate = useNavigate();
 
   const { login } = useAuthContext()
 
@@ -23,10 +21,9 @@ export const LoginForm = () => {
 
     if(result) {
       alert(result);
+      window.location.reload();
       setIsLoading(false);
     } else {
-      navigate('/adminPage')
-      window.location.reload();
       setIsLoading(false);
     };
   };
@@ -61,9 +58,9 @@ export const LoginForm = () => {
             <Button variant="secondary" type="button" onClick={handleLogin} className="w-100 mb-3">
               Entrar
             </Button>
-            <Button variant="dark"  className="w-100" disabled={isLoading} onClick={() => navigate('/')}>
+            {/* <Button variant="dark"  className="w-100" disabled={isLoading} onClick={() => navigate('/')}>
               ↲ Voltar 
-            </Button>
+            </Button> */}
           </Form>
         </Col>
       </Row>

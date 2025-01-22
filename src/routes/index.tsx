@@ -4,29 +4,29 @@ import { ListagemPostos, Home, LoginPage, AdminPage, DetalhePostos } from '../pa
 import { useAuthContext } from '../shared/contexts';
 
 
-type IPrivateProps = {
-    Item: React.ComponentType;
-} 
+// type IPrivateProps = {
+    // Item: React.ComponentType;
+// } 
 
 
-const Private: React.FC<IPrivateProps> = ({Item}) => {
-    const {isAuthenticated} = useAuthContext();
-
-    console.log("Estado de autenticação no Private:", isAuthenticated);
-
-    return isAuthenticated ? <Item/> : <LoginPage/>
-}
-
+// const Private: React.FC<IPrivateProps> = ({Item}) => {
+    // const {isAuthenticated} = useAuthContext();
+// 
+    // console.log("Estado de autenticação no Private:", isAuthenticated);
+// 
+    // return isAuthenticated ? <Item/> : <LoginPage/>
+// }
+// 
 
 export const AppRoutes = () => {
     return(
         <Routes>
-            <Route path='/adminPage' element={<Private Item={AdminPage}/>}/>
-            <Route path='/adminPage/detalhe/:id' element={<Private Item={DetalhePostos}/>}/>
+            <Route path='/adminPage' element={<AdminPage/>}/>
+            <Route path='/adminPage/detalhe/:id' element={<DetalhePostos/>}/>
 
 
             <Route path='/' element={<Home/>}/>
-            <Route path='/login' element={<LoginPage/>}/>
+            {/* <Route path='/login' element={<LoginPage/>}/> */}
             <Route path='/postos' element={<ListagemPostos/>}/>
 
             <Route path='*' element={<Home/>}/>
