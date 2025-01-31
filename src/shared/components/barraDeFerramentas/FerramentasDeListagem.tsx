@@ -38,7 +38,7 @@ export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
                 value={textoDaBusca}
                 onChange={(e) => aoMudarTextoDeBusca?.(e.target.value)}
             />
-            { mostrarBotaoNovo && (
+            { mostrarBotaoNovo && ( 
                 <Button 
                     variant="light" 
                     className="d-flex align-items-center me-2"
